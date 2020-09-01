@@ -1,0 +1,6 @@
+Name           	Roll	CSE101	CSE102	STAT103	 MATH104  GE105  SE106
+Abhijit        	1201	75	87	76	 89	  78	 75
+Mashiat        	1202	95	67	96	 79	  88	 85
+Shazzad        	1203	65	77	76	 59	  68	 95
+Istiaq         	1204 	80	75	72	 79 	  85	 90
+Tasnia         	1205	88	85	75	 70	  80 	 70	
