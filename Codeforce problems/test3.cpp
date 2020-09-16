@@ -1,46 +1,81 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll unsigned long long 
-#define N 1000
+#define ll unsigned long long
+#define N 100
+
+
+bool res(ll x)
+{
+	ll i,j,k,f=1,m;
+
+	set<ll>:: iterator it;
+	set<ll> s;
+	
+	if(x == 3 || x == 5) return 1;
+	while(x%2 == 0)
+	{
+		s.insert(2);
+		s.insert(x/2);
+		x/=2;
+	}
+
+	for(k=3; k<=sqrt(x); k+=2)
+	{
+		while(x%k == 0 )
+		{
+			s.insert(k);
+			s.insert(x/k);                                    
+			x/=k;
+		}
+	}
+
+	if(s.size()!=0)
+	{
+		for(it=s.begin(); it!=s.end(); it++)
+		{
+			f=0;
+//				cout << *it  << endl;
+
+			if(*it == 2 || *it == 5 || *it == 3 || *it == 1)
+			{
+				continue;
+			}
+			else
+			{
+				return 0;
+				break;
+			}
+
+		}
+	}
+
+	if(f==0)	return 1;
+	else return 0;
+}
 
 
 int main()
 {
-	int t;
-	cin >> t;
-	
-	while(t--)
+	ll ct=1,num=2;
+	for(num=2; num<N; num++)
 	{
-		long int n,m,i,j,f=1;
-		set<long int> a,b;
-		cin >> n >> m;
-		
-		for(i=0;i<n;i++)
+		if(res(num) == 1)
 		{
-			cin >> j;
-			a.insert(j);
+			cout << num <<"**"<< endl;
+			ct++;
 		}
-		
-		for(i=0;i<m;i++)
-		{
-			cin >> j;
-			b.insert(j);
-		}
-		
-		
-		
-		
-			for(auto x: b)
-			{
-				if(a.count(x))
-				{
-					f=0;
-					cout << "YES" << endl;
-					cout << 1 <<" " <<x<<endl;
-					break;
-				}
-			}
-			if(f) cout << "NO" << endl;
-		
 	}
-}	
+
+	cout << "Serial is: " << ct << endl;
+}
+
+
+
+
+
+
+
+
+
+
+

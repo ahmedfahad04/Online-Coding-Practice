@@ -1,34 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-vector <int> adj[1010];
-
+#define ll long long
 int main()
 {
-
-	int x, y, nodes, edges;
-	cin >> nodes;       //Number of nodes
-	cin >> edges;       //Number of edges
-	for(int i = 0; i < edges; ++i)
+	int t;
+	cin >> t;
+	
+	while(t--)
 	{
-		cin >> x >> y;
-		adj[x].push_back(y);        //Insert y in adjacency list of x
-	}
-
-	int q;
-	cin >> q;
-	while(q--)
-	{
-		int a,b,flag=0;
-		cin >> a >> b;
-		
-		for(int i = 0; i < adj[a].size(); ++i)
+		ll n,m[30][30],i,j,k,ans=0;
+		cin >> n;
+		for(i=0;i<n;i++)
 		{
-			if(adj[a][i] == b) flag = 1;
+			for(j=0;j<n;j++)
+			{
+				cin >> m[i][j];
+			}
 		}
-		if(flag == 0) cout << "NO" << endl;
-		else cout << "YES" << endl;
 		
-	}
-
+		for(i=0;i<n;i++)
+		{
+			for(j=i+1;j<n;j++)
+			{
+				if(m[i][j-1]>m[i][j]) ans++;
+			}
+		}
+		
+		for(i=0;i<n;i++)
+		{
+			for(j=i+1;j<n;j++)
+			{
+				if(m[j][i]>m[j][i]) ans++;		
+			}
+		}
+		
+		cout << ans << endl;
+ 	}
 }
