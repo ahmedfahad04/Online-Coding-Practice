@@ -1,29 +1,31 @@
 #include <bits/stdc++.h>
 #define ll long long int
+#define pb push_back
 using namespace std;
 
 
 int main()
 {
-	ll i;
-	for(i=1;;i++)
+	int n,k,i,m;
+	cin>> n >>k;
+	
+	if(n>=k)
 	{
-	
-		string ch;
-		cin >> ch;
-		if(ch == "*")break;
-		else{
-			
-			if(ch == "Hajj")
-			cout << "Case " << i <<": "<<"Hajj-e-Akbar"<<endl;
-			else
-			cout << "Case " << i <<": "<<"Hajj-e-Asghar"<<endl;
-
+		if(n&1) m = (n/2)+1;
+		else m = n/2;
+		
+		for(i=m;i<=n;i++)
+		{
+			if(i%k == 0) {
+				cout << i ;
+				return 0;
+			}
 		}
-	
+		
+		cout << -1;
+		
 	}
-
-
+	else cout << -1 ;
 }
 
 
