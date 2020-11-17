@@ -1,36 +1,30 @@
-#include <bits/stdc++.h>
-#define ll long long int
-#define pb push_back
-#define mod 10000007
+#include<bits/stdc++.h>
 using namespace std;
-
-
+typedef long long int ll;
+ll par(ll a[],ll n)
+{
+    ll res=0;
+    ll bit[32]={0};
+    for(ll i=0;i<n;i++){
+        ll pos=log2(a[i]);
+        bit[pos]++;
+    }
+    for(ll i=0;i<32;i++){
+        res+=(bit[i]*(bit[i]-1))/2;
+    }
+    return res;
+}
 int main()
 {
-	
-	int t;
-	cin >> t;
-	while(t--)
-	{
-		ll x,m,n,i,j,k;
-		cin >> x >> m >> n;
-		n = n * 10;
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n,i;
+        cin>>n;
+        ll a[n];
+        for(i=0;i<n;i++) cin>>a[i];
+        cout<<par(a,n)<<endl;
+    }
 
-		if(x<=n) cout << "YES\n";
-		else
-		{
-			for(i=0; i<m; i++)
-			{
-				x = (x/2) + 10;
-			}
-
-			if(x<=n) cout << "YES\n";
-			else cout << "NO\n";
-		}
-
-
-	}
-	
 }
-
-
+   	  	  					  	    	 	  	  		
